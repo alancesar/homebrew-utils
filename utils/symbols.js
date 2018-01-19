@@ -1,12 +1,12 @@
 module.exports = {
   color: {
     ebc: 'EBC',
-    l: 'ºL',
+    lovibond: 'ºL',
     srm: 'SRM',
   },
   density: {
     brix: 'ºBx',
-    sg: 'kg/m³',
+    sg: 'sg',
   },
   mass: {
     grams: 'g',

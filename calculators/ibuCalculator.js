@@ -1,7 +1,7 @@
 module.exports = ({
   inputs, batchSize, wortCollected, og,
 }) => {
-  const boilGravity = (batchSize.gallons.value / wortCollected.gallons.value) * (og - 1);
+  const boilGravity = (batchSize.gallons.value / wortCollected.gallons.value) * (og.sg.value - 1);
 
   return inputs.map((input) => {
     // eslint-disable-next-line no-restricted-properties

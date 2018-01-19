@@ -23,7 +23,7 @@ class Color {
       },
       {
         expression: /(l|ºl)$/,
-        method: Color.l,
+        method: Color.lovibond,
       },
     ];
 
@@ -37,9 +37,9 @@ class Color {
         value,
         symbol: symbols.ebc,
       },
-      l: {
+      lovibond: {
         value: converter.ebc(value).inL(),
-        symbol: symbols.l,
+        symbol: symbols.lovibond,
       },
       srm: {
         value: converter.ebc(value).inSrm(),
@@ -48,15 +48,15 @@ class Color {
     }, hexAndRgbValue);
   }
 
-  static l(value) {
+  static lovibond(value) {
     return builder(Color.prototype, {
       ebc: {
         value: converter.l(value).inEbc(),
         symbol: symbols.ebc,
       },
-      l: {
+      lovibond: {
         value,
-        symbol: symbols.l,
+        symbol: symbols.lovibond,
       },
       srm: {
         value: converter.l(value).inSrm(),
@@ -71,9 +71,9 @@ class Color {
         value: converter.srm(value).inEbc(),
         symbol: symbols.ebc,
       },
-      l: {
+      lovibond: {
         value: converter.srm(value).inL(),
-        symbol: symbols.l,
+        symbol: symbols.lovibond,
       },
       srm: {
         value,

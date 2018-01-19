@@ -7,7 +7,7 @@ class Density {
   constructor(value = 0) {
     const rules = [
       {
-        expression: /(kg\/m³|kg\/m3|kgm³|kgm3)$/,
+        expression: /(sg)$/,
         method: Density.sg,
       },
       {

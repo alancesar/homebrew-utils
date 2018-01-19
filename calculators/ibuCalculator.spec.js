@@ -1,7 +1,7 @@
 /* global describe, it */
 const { expect } = require('chai');
 const { ibu } = require('./calculators');
-const { Volume, Mass } = require('../units/units');
+const { Density, Volume, Mass } = require('../units/units');
 
 const mock = {
   inputs: [
@@ -31,7 +31,7 @@ const mock = {
       boilTime: 0,
     },
   ],
-  og: 1.063,
+  og: new Density(1.063),
   wortCollected: new Volume('42l'),
   batchSize: new Volume('36l'),
 };

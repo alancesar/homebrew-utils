@@ -4,7 +4,7 @@ const Color = require('./Color');
 
 const expected = {
   ebc: { value: 47.28, symbol: 'EBC' },
-  l: { value: 18.278458585560315, symbol: 'ºL' },
+  lovibond: { value: 18.278458585560315, symbol: 'ºL' },
   srm: { value: 24, symbol: 'SRM' },
   hex: '#821E00',
   rgb: [130, 30, 0],
