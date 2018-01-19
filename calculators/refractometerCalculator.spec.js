@@ -1,7 +1,7 @@
 /* global describe, it */
 const { expect } = require('chai');
-const { calculate, refractometer } = require('./calculator');
-const Density = require('../models/Density');
+const { refractometer } = require('./calculators');
+const { Density } = require('../units/units');
 
 describe('Refractometer Calculator', () => {
   it('refractometer correction', () => {
@@ -10,7 +10,7 @@ describe('Refractometer Calculator', () => {
       fg: new Density('7.3bx'),
     };
 
-    const result = calculate(refractometer, params);
+    const result = refractometer(params);
     expect(result.sg.value).to.be.closeTo(1.010, 0.01);
   });
 });

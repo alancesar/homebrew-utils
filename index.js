@@ -1,15 +1,5 @@
-const calculator = require('./calculators/calculator');
-const Color = require('./models/Color');
-const Density = require('./models/Density');
-const Mass = require('./models/Mass');
-const Temperature = require('./models/Temperature');
-const Volume = require('./models/Volume');
+const calculators = require('./calculators/calculators');
+const units = require('./units/units');
 
-exports.calculator = calculator;
-exports.units = {
-  Color,
-  Density,
-  Mass,
-  Temperature,
-  Volume,
-};
+exports.calculators = calculators;
+exports.units = units;

@@ -1,5 +1,5 @@
 /* eslint-disable no-restricted-properties */
-const Density = require('../models/Density');
+const { Density } = require('../units/units');
 
 module.exports = ({ og, fg }) => {
   const ogInBrix = og.brix.value;

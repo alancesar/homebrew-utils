@@ -1,6 +1,6 @@
 /* global describe, it */
 const { expect } = require('chai');
-const { calculate, volumeCo2 } = require('./calculator');
+const { volumeCo2 } = require('./calculators');
 
 describe('Volume CO2 Calculator', () => {
   it('total CO2', () => {
@@ -18,6 +18,6 @@ describe('Volume CO2 Calculator', () => {
       },
     };
 
-    expect(calculate(volumeCo2, params)).to.be.closeTo(2.47, 0.01);
+    expect(volumeCo2(params)).to.be.closeTo(2.47, 0.01);
   });
 });

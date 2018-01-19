@@ -1,8 +1,7 @@
 /* global describe, it */
 const { expect } = require('chai');
-const { calculate, expectedGravity } = require('./calculator');
-const Mass = require('../models/Mass');
-const Volume = require('../models/Volume');
+const { expectedGravity } = require('./calculators');
+const { Mass, Volume } = require('../units/units');
 
 const mock = {
   inputs: [
@@ -30,7 +29,7 @@ const mock = {
 
 describe('Expected Density Calculator', () => {
   it('OG, FG and ABV', () => {
-    const result = calculate(expectedGravity, mock);
+    const result = expectedGravity(mock);
     expect(result.preBoilOg.sg.value).to.be.closeTo(1.050, 0.001);
     expect(result.og.sg.value).to.be.closeTo(1.080, 0.001);
     expect(result.fg.sg.value).to.be.closeTo(1.022, 0.001);

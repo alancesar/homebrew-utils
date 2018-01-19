@@ -1,4 +1,4 @@
-const Color = require('../models/Color');
+const { Color } = require('../units/units');
 
 module.exports = ({ inputs, batchSize }) => {
   const mcu = inputs.map((input) => {

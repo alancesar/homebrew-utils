@@ -1,5 +1,5 @@
 const abvCalculator = require('./abvCalculator');
-const Density = require('../models/Density');
+const { Density } = require('../units/units');
 
 module.exports = ({
   inputs, wortCollected, batchSize, efficiency, attenuation,

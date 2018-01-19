@@ -1,8 +1,7 @@
 /* global describe, it */
 const { expect } = require('chai');
-const { calculate, ibu } = require('./calculator');
-const Volume = require('../models/Volume');
-const Mass = require('../models/Mass');
+const { ibu } = require('./calculators');
+const { Volume, Mass } = require('../units/units');
 
 const mock = {
   inputs: [
@@ -39,7 +38,7 @@ const mock = {
 
 describe('IBU Calculator', () => {
   it('total IBU', () => {
-    const result = calculate(ibu, mock);
+    const result = ibu(mock);
     expect(result).to.be.closeTo(73.61, 0.1);
   });
 });

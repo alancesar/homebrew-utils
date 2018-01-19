@@ -13,7 +13,8 @@
     "sinon": "^4.1.6"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "mocha './!(node_modules)/**/*.spec.js'",
+    "lint": "eslint . --ext .js"
   },
   "repository": {
     "type": "git",

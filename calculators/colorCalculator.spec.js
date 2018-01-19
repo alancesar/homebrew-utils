@@ -1,8 +1,7 @@
 /* global describe, it */
 const { expect } = require('chai');
-const { calculate, color } = require('./calculator');
-const Mass = require('../models/Mass');
-const Volume = require('../models/Volume');
+const { color } = require('./calculators');
+const { Mass, Volume } = require('../units/units');
 
 const mock = {
   inputs: [
@@ -43,7 +42,7 @@ describe('Color Calculator', () => {
       rgb: [3, 4, 3],
     };
 
-    const result = calculate(color, mock);
+    const result = color(mock);
     expect(result.srm.value).to.be.closeTo(expected.srm.value, 0.01);
     expect(result.srm.symbol).to.be.equal(expected.srm.symbol);
     expect(result.ebc.value).to.be.closeTo(expected.ebc.value, 0.01);
