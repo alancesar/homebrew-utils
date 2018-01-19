@@ -36,8 +36,8 @@ describe('Color Calculator', () => {
         value: 6.02,
         symbol: 'SRM',
       },
-      hex: '#030403',
-      rgb: [3, 4, 3],
+      hex: '#F8A600',
+      rgb: [248, 166, 0],
     };
 
     const result = color(mock);
@@ -47,7 +47,7 @@ describe('Color Calculator', () => {
     expect(result.ebc.symbol).to.be.equal(expected.ebc.symbol);
     expect(result.lovibond.value).to.be.closeTo(expected.lovibond.value, 0.01);
     expect(result.lovibond.symbol).to.be.equal(expected.lovibond.symbol);
-    expect(result.hex).to.be.equal('#F8A600');
-    expect(result.rgb).to.be.deep.equal([248, 166, 0]);
+    expect(result.hex).to.be.equal(expected.hex);
+    expect(result.rgb).to.be.deep.deep.equal(expected.rgb);
   });
 });
