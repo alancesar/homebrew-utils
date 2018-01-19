@@ -40,27 +40,27 @@ const kg = new Mass(8);
 
 // specific unit
 const lbs = new Mass('17.637lbs');
-const oz = Mass.ounces(282.192)
+const oz = Mass.ounces(282.192);
 ```
 ### Structure
 ```javascript
 Mass {
   grams: {
     value: 8000,
-    symbol: 'g'
+    symbol: 'g',
   },
   kilograms: {
     value: 8,
-    symbol: 'kg'
+    symbol: 'kg',
   },
   pounds: {
     value: 17.63698096,
-    symbol: 'lbs'
+    symbol: 'lbs',
   },
   ounces: {
     value: 282.192,
-    symbol: 'oz'
-  }
+    symbol: 'oz',
+  },
 }
 ```
 
@@ -95,10 +95,10 @@ let color = color({
   inputs: [
     {
       quantity: new Mass('4kg'),
-      color: new Color(5)
-    }
+      color: new Color(5),
+    },
   ],
-  batchSize: new Volume('40l')
+  batchSize: new Volume('40l'),
 });
 ```
 #### Expected Gravity
@@ -112,8 +112,8 @@ let color = color({
     {
       ppg: 37,
       quantity: new Mass('4kg'),
-      mashable: true
-    }
+      mashable: true,
+    },
   ],
   wortCollected: new Volume('64l'),
   batchSize: new Volume('40l'),
@@ -132,8 +132,8 @@ let color = color({
     {
       ppg: 37,
       quantity: new Mass('4kg'),
-      mashable: true
-    }
+      mashable: true,
+    },
   ],
   og: new Density(1.063),
   wortCollected: new Volume('42l'),
@@ -149,7 +149,7 @@ const { refractometer } = calculators;
 
 let color = color({
   og: new Density('17.1bx'),
-  fg: new Density('7.3bx')
+  fg: new Density('7.3bx'),
 });
 ```
 
