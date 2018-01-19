@@ -72,7 +72,7 @@ Mass {
 - [Expected Gravity](#expectet-gravity)
 - [IBU](#ibu)
 - [Refractometer Correction](#refractometer-correction)
-- Volume CO2](#volume-co2)
+- [Volume CO2](#volume-co2)
 
 ### Usage
 #### ABV
