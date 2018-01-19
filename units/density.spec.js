@@ -3,7 +3,7 @@ const { expect } = require('chai');
 const Density = require('./Density');
 
 const expected = {
-  sg: { value: 1.0919540676449373, symbol: 'kg/m³' },
+  sg: { value: 1.0919540676449373, symbol: 'sg' },
   brix: { value: 22, symbol: 'ºBx' },
 };
 
