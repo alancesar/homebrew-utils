@@ -33,6 +33,6 @@ describe('Expected Density Calculator', () => {
     expect(result.preBoilOg.sg.value).to.be.closeTo(1.050, 0.001);
     expect(result.og.sg.value).to.be.closeTo(1.080, 0.001);
     expect(result.fg.sg.value).to.be.closeTo(1.022, 0.001);
-    expect(result.abv).to.be.closeTo(0.0754, 0.0001);
+    expect(result.abv).to.be.closeTo(0.0817, 0.001);
   });
 });
