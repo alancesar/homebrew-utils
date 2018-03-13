@@ -1,7 +1,16 @@
 language: node_js
 node_js:
-  - "8"
-  - "6"
+- '8'
+- '6'
 scripts:
-  - npm run lint
-  - npm test
+- npm run lint
+- npm test
+deploy:
+  provider: npm
+  email: alancesarelias@gmail.com
+  api_key:
+    secure: lH2iaS4htdhK2tykl/7FyKsoGsk9t7DXnkB9KZhZpp4Ou7PgrJwVxNm43PFqEaJVec+Ktv5nIVyojuZIMTQ1xizzG4K1+Z3lM7CKJBzitKOzQABmJAosncuk3oFCieszgSWlXe1agpmQW1CRvCIdtL3DTOlUoId7M0b03s5tI0UKXbqoYsY8vP0KMyz5j03M1edePAD+ORZFGxqUypcoLEaWKD1+9RVuMj3bDE6lINySKb6VCcw8PSp+jiJaKLH8wFOaoeLsZPRmoJ5I9W/CEdJVNBQp4CjE7Xfx/tbRZ2peRER62Fh/wrwv+cjA1yvPtlwtYEv5+3yZTfhoxL2wdGoU51DD5v3T6+BWrrTDjRl9NGk9OvWnZMTHfpOP+qTNlN6iVbvlsK4X71l1Ai2gh9Yyj1wiOGY6KMtFwAIgbupbSJSV5j1jaGeLyr+l18NmUfbu4zByGDgSOH67mvgG9mqtPxOY17Z8kBTKtVqdgiWKQy6sRhG/AUG3RoC1StH7BqKvQhtqnfb7H2UPz/hrlT53/9YG0dPbdBEPMN22ReT2qyUKjnqMlMoN9R9pzlIav9PxycmeqcVoCXRA+IpyqwKtbdvZOH/W63g1ppXjjPfZoL7JpA3iPgdFNrnAhFWRsdXEzS7y5X4/966p9o/nVi6qV4411plXeCgUWtC7ukg=
+  on:
+    tags: true
+    branch: master
+    repo: alancesar/homebrew-utils
