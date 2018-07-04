@@ -1,6 +1,6 @@
 import builder from '../utils/builder';
 import regex from '../utils/regex';
-import { volume } from '../utils/symbols';
+import { volume as symbols } from '../utils/symbols';
 import converter from '../converters/volumeConverter';
 
 export default class Volume {
@@ -27,15 +27,15 @@ export default class Volume {
     return builder(Volume.prototype, {
       milliliters: {
         value,
-        symbol: volume.milliliters,
+        symbol: symbols.milliliters,
       },
       liters: {
         value: converter.milliliters(value).inLiters(),
-        symbol: volume.liters,
+        symbol: symbols.liters,
       },
       gallons: {
         value: converter.milliliters(value).inGallons(),
-        symbol: volume.gallons,
+        symbol: symbols.gallons,
       },
     });
   }
@@ -44,15 +44,15 @@ export default class Volume {
     return builder(Volume.prototype, {
       milliliters: {
         value: converter.liters(value).inMilliliters(),
-        symbol: volume.milliliters,
+        symbol: symbols.milliliters,
       },
       liters: {
         value,
-        symbol: volume.liters,
+        symbol: symbols.liters,
       },
       gallons: {
         value: converter.liters(value).inGallons(),
-        symbol: volume.gallons,
+        symbol: symbols.gallons,
       },
     });
   }
@@ -61,15 +61,15 @@ export default class Volume {
     return builder(Volume.prototype, {
       milliliters: {
         value: converter.gallons(value).inMilliliters(),
-        symbol: volume.milliliters,
+        symbol: symbols.milliliters,
       },
       liters: {
         value: converter.gallons(value).inLiters(),
-        symbol: volume.liters,
+        symbol: symbols.liters,
       },
       gallons: {
         value,
-        symbol: volume.gallons,
+        symbol: symbols.gallons,
       },
     });
   }

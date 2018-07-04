@@ -1,6 +1,6 @@
 import builder from '../utils/builder';
 import regex from '../utils/regex';
-import { temperature } from '../utils/symbols';
+import { temperature as symbols } from '../utils/symbols';
 import converter from '../converters/temperatureConverter';
 
 export default class Temperature {
@@ -23,11 +23,11 @@ export default class Temperature {
     return builder(Temperature.prototype, {
       celcius: {
         value,
-        symbol: temperature.celcius,
+        symbol: symbols.celcius,
       },
       fahrenheit: {
         value: converter.celcius(value).inFahrenheit(),
-        symbol: temperature.fahrenheit,
+        symbol: symbols.fahrenheit,
       },
     });
   }
@@ -36,11 +36,11 @@ export default class Temperature {
     return builder(Temperature.prototype, {
       celcius: {
         value: converter.fahrenheit(value).inCelcius(),
-        symbol: temperature.celcius,
+        symbol: symbols.celcius,
       },
       fahrenheit: {
         value,
-        symbol: temperature.fahrenheit,
+        symbol: symbols.fahrenheit,
       },
     });
   }

@@ -1,7 +1,7 @@
 import builder from '../utils/builder';
 import regex from '../utils/regex';
 import srmColorMap from '../utils/srmColorMap';
-import { color } from '../utils/symbols';
+import { color as symbols } from '../utils/symbols';
 import converter from '../converters/colorConverter';
 
 const hexAndRgbValue = (data) => {
@@ -35,15 +35,15 @@ export default class Color {
     return builder(Color.prototype, {
       ebc: {
         value,
-        symbol: color.ebc,
+        symbol: symbols.ebc,
       },
       lovibond: {
         value: converter.ebc(value).inL(),
-        symbol: color.lovibond,
+        symbol: symbols.lovibond,
       },
       srm: {
         value: converter.ebc(value).inSrm(),
-        symbol: color.srm,
+        symbol: symbols.srm,
       },
     }, hexAndRgbValue);
   }
@@ -52,15 +52,15 @@ export default class Color {
     return builder(Color.prototype, {
       ebc: {
         value: converter.l(value).inEbc(),
-        symbol: color.ebc,
+        symbol: symbols.ebc,
       },
       lovibond: {
         value,
-        symbol: color.lovibond,
+        symbol: symbols.lovibond,
       },
       srm: {
         value: converter.l(value).inSrm(),
-        symbol: color.srm,
+        symbol: symbols.srm,
       },
     }, hexAndRgbValue);
   }
@@ -69,15 +69,15 @@ export default class Color {
     return builder(Color.prototype, {
       ebc: {
         value: converter.srm(value).inEbc(),
-        symbol: color.ebc,
+        symbol: symbols.ebc,
       },
       lovibond: {
         value: converter.srm(value).inL(),
-        symbol: color.lovibond,
+        symbol: symbols.lovibond,
       },
       srm: {
         value,
-        symbol: color.srm,
+        symbol: symbols.srm,
       },
     }, hexAndRgbValue);
   }

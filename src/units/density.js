@@ -1,6 +1,6 @@
 import builder from '../utils/builder';
 import regex from '../utils/regex';
-import { density } from '../utils/symbols';
+import { density as symbols } from '../utils/symbols';
 import converter from '../converters/densityConverter';
 
 export default class Density {
@@ -23,11 +23,11 @@ export default class Density {
     return builder(Density.prototype, {
       sg: {
         value,
-        symbol: density.sg,
+        symbol: symbols.sg,
       },
       brix: {
         value: converter.sg(value).inBrix(),
-        symbol: density.brix,
+        symbol: symbols.brix,
       },
     });
   }
@@ -36,11 +36,11 @@ export default class Density {
     return builder(Density.prototype, {
       sg: {
         value: converter.brix(value).inSg(),
-        symbol: density.sg,
+        symbol: symbols.sg,
       },
       brix: {
         value,
-        symbol: density.brix,
+        symbol: symbols.brix,
       },
     });
   }
