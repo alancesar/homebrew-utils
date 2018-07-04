@@ -2,9 +2,14 @@
   "name": "homebrew-utils",
   "version": "0.0.9",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
   "dependencies": {},
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-jest": "^23.2.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
     "eslint": "^4.15.0",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.8.0",
@@ -13,7 +18,15 @@
   },
   "scripts": {
     "test": "jest --coverage --notify",
-    "lint": "eslint . --ext .js"
+    "build": "babel src --out-dir dist",
+    "lint": "eslint . --ext .js",
+    "prepublish": "npm run build"
+  },
+  "jest": {
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/dist/"
+    ]
   },
   "repository": {
     "type": "git",
