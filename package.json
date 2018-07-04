@@ -12,7 +12,7 @@
     "jest": "^23.2.0"
   },
   "scripts": {
-    "test": "mocha './!(node_modules)/**/*.spec.js'",
+    "test": "jest --coverage --notify",
     "lint": "eslint . --ext .js"
   },
   "repository": {
