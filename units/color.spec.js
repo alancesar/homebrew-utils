@@ -1,5 +1,3 @@
-/* global describe, it */
-const { expect } = require('chai');
 const Color = require('./Color');
 
 const expected = {
@@ -13,7 +11,7 @@ const expected = {
 describe('Color', () => {
   it('new instance', () => {
     const color = new Color('24srm');
-    expect(color).to.be.instanceof(Color);
-    expect(color).to.be.deep.equal(expected);
+    expect(color).toBeInstanceOf(Color);
+    expect(color).toEqual(expected);
   });
 });
