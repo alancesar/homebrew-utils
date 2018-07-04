@@ -1,5 +1,3 @@
-/* global describe, it */
-const { expect } = require('chai');
 const { refractometer } = require('./calculators');
 const { Density } = require('../units/units');
 
@@ -11,6 +9,6 @@ describe('Refractometer Calculator', () => {
     };
 
     const result = refractometer(params);
-    expect(result.sg.value).to.be.closeTo(1.010, 0.01);
+    expect(result.sg.value).toBeCloseTo(1.010, 1);
   });
 });

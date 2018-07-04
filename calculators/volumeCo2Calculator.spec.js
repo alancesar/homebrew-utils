@@ -1,5 +1,3 @@
-/* global describe, it */
-const { expect } = require('chai');
 const { volumeCo2 } = require('./calculators');
 const { Temperature } = require('../units/units');
 
@@ -10,6 +8,6 @@ describe('Volume CO2 Calculator', () => {
       temperature: new Temperature(20),
     };
 
-    expect(volumeCo2(params)).to.be.closeTo(2.47, 0.01);
+    expect(volumeCo2(params)).toBeCloseTo(2.47, 1);
   });
 });

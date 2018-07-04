@@ -5,15 +5,14 @@
   "main": "index.js",
   "dependencies": {},
   "devDependencies": {
-    "chai": "^4.1.2",
     "eslint": "^4.15.0",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.8.0",
-    "mocha": "^5.0.0",
-    "sinon": "^4.1.6"
+    "eslint-plugin-jest": "^21.17.0",
+    "jest": "^23.2.0"
   },
   "scripts": {
-    "test": "mocha './!(node_modules)/**/*.spec.js'",
+    "test": "jest --coverage --notify",
     "lint": "eslint . --ext .js"
   },
   "repository": {
