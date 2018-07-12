@@ -1,10 +1,15 @@
-import builder from '../utils/builder';
+import merger from '../utils/merger';
 import regex from '../utils/regex';
 import { volume as symbols } from '../utils/symbols';
 import converter from '../converters/volumeConverter';
 
 export default class Volume {
-  constructor(value = 0) {
+  constructor(properties = 0) {
+    if (typeof properties === 'object') {
+      Object.assign(this, properties);
+      return;
+    }
+
     const rules = [
       {
         expression: /l$/,
@@ -20,11 +25,11 @@ export default class Volume {
       },
     ];
 
-    Object.assign(this, regex(value, rules));
+    Object.assign(this, regex(properties, rules));
   }
 
   static milliliters(value) {
-    return builder(Volume.prototype, {
+    return new Volume(merger({
       milliliters: {
         value,
         symbol: symbols.milliliters,
@@ -37,11 +42,11 @@ export default class Volume {
         value: converter.milliliters(value).inGallons(),
         symbol: symbols.gallons,
       },
-    });
+    }));
   }
 
   static liters(value) {
-    return builder(Volume.prototype, {
+    return new Volume(merger({
       milliliters: {
         value: converter.liters(value).inMilliliters(),
         symbol: symbols.milliliters,
@@ -54,11 +59,11 @@ export default class Volume {
         value: converter.liters(value).inGallons(),
         symbol: symbols.gallons,
       },
-    });
+    }));
   }
 
   static gallons(value) {
-    return builder(Volume.prototype, {
+    return new Volume(merger({
       milliliters: {
         value: converter.gallons(value).inMilliliters(),
         symbol: symbols.milliliters,
@@ -71,6 +76,6 @@ export default class Volume {
         value,
         symbol: symbols.gallons,
       },
-    });
+    }));
   }
 }

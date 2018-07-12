@@ -1,17 +1,22 @@
-import builder from '../utils/builder';
+import merger from '../utils/merger';
 import regex from '../utils/regex';
 import srmColorMap from '../utils/srmColorMap';
 import { color as symbols } from '../utils/symbols';
 import converter from '../converters/colorConverter';
 
-const hexAndRgbValue = (data) => {
-  const hex = srmColorMap[Math.floor(data.srm.value)] || srmColorMap.max;
+const hexAndRgbValue = ({ srm }) => {
+  const hex = srmColorMap[Math.floor(srm.value)] || srmColorMap.max;
   const rgb = converter.hex(hex).inRgb();
   return { hex, rgb };
 };
 
 export default class Color {
-  constructor(value = 0) {
+  constructor(properties = 0) {
+    if (typeof properties === 'object') {
+      Object.assign(this, properties);
+      return;
+    }
+
     const rules = [
       {
         expression: /srm$/,
@@ -27,12 +32,11 @@ export default class Color {
       },
     ];
 
-    const data = regex(value, rules);
-    Object.assign(this, data, hexAndRgbValue(data));
+    Object.assign(this, merger(regex(properties, rules), hexAndRgbValue));
   }
 
   static ebc(value) {
-    return builder(Color.prototype, {
+    return new Color(merger({
       ebc: {
         value,
         symbol: symbols.ebc,
@@ -45,11 +49,11 @@ export default class Color {
         value: converter.ebc(value).inSrm(),
         symbol: symbols.srm,
       },
-    }, hexAndRgbValue);
+    }, hexAndRgbValue));
   }
 
   static lovibond(value) {
-    return builder(Color.prototype, {
+    return new Color(merger({
       ebc: {
         value: converter.l(value).inEbc(),
         symbol: symbols.ebc,
@@ -62,11 +66,11 @@ export default class Color {
         value: converter.l(value).inSrm(),
         symbol: symbols.srm,
       },
-    }, hexAndRgbValue);
+    }, hexAndRgbValue));
   }
 
   static srm(value) {
-    return builder(Color.prototype, {
+    return new Color(merger({
       ebc: {
         value: converter.srm(value).inEbc(),
         symbol: symbols.ebc,
@@ -79,6 +83,6 @@ export default class Color {
         value,
         symbol: symbols.srm,
       },
-    }, hexAndRgbValue);
+    }, hexAndRgbValue));
   }
 }

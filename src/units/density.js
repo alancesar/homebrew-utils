@@ -1,10 +1,15 @@
-import builder from '../utils/builder';
+import merger from '../utils/merger';
 import regex from '../utils/regex';
 import { density as symbols } from '../utils/symbols';
 import converter from '../converters/densityConverter';
 
 export default class Density {
-  constructor(value = 0) {
+  constructor(properties = 0) {
+    if (typeof properties === 'object') {
+      Object.assign(this, properties);
+      return;
+    }
+
     const rules = [
       {
         expression: /(sg)$/,
@@ -16,11 +21,11 @@ export default class Density {
       },
     ];
 
-    Object.assign(this, regex(value, rules));
+    Object.assign(this, regex(properties, rules));
   }
 
   static sg(value) {
-    return builder(Density.prototype, {
+    return new Density(merger({
       sg: {
         value,
         symbol: symbols.sg,
@@ -29,11 +34,11 @@ export default class Density {
         value: converter.sg(value).inBrix(),
         symbol: symbols.brix,
       },
-    });
+    }));
   }
 
   static brix(value) {
-    return builder(Density.prototype, {
+    return new Density(merger({
       sg: {
         value: converter.brix(value).inSg(),
         symbol: symbols.sg,
@@ -42,6 +47,6 @@ export default class Density {
         value,
         symbol: symbols.brix,
       },
-    });
+    }));
   }
 }

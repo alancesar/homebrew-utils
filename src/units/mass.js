@@ -1,10 +1,15 @@
-import builder from '../utils/builder';
+import merger from '../utils/merger';
 import regex from '../utils/regex';
 import { mass as symbols } from '../utils/symbols';
 import converter from '../converters/massConverter';
 
 export default class Mass {
-  constructor(value = 0) {
+  constructor(properties = 0) {
+    if (typeof properties === 'object') {
+      Object.assign(this, properties);
+      return;
+    }
+
     const rules = [
       {
         expression: /kg$/,
@@ -24,11 +29,11 @@ export default class Mass {
       },
     ];
 
-    Object.assign(this, regex(value, rules));
+    Object.assign(this, regex(properties, rules));
   }
 
   static grams(value) {
-    return builder(Mass.prototype, {
+    return new Mass(merger({
       grams: {
         value,
         symbol: symbols.grams,
@@ -45,11 +50,11 @@ export default class Mass {
         value: converter.grams(value).inOunces(),
         symbol: symbols.ounces,
       },
-    });
+    }));
   }
 
   static kilograms(value) {
-    return builder(Mass.prototype, {
+    return new Mass(merger({
       grams: {
         value: converter.kilograms(value).inGrams(),
         symbol: symbols.grams,
@@ -66,11 +71,11 @@ export default class Mass {
         value: converter.kilograms(value).inOunces(),
         symbol: symbols.ounces,
       },
-    });
+    }));
   }
 
   static pounds(value) {
-    return builder(Mass.prototype, {
+    return new Mass(merger({
       grams: {
         value: converter.pounds(value).inGrams(),
         symbol: symbols.grams,
@@ -87,11 +92,11 @@ export default class Mass {
         value: converter.pounds(value).inOunces(),
         symbol: symbols.ounces,
       },
-    });
+    }));
   }
 
   static ounces(value) {
-    return builder(Mass.prototype, {
+    return new Mass(merger({
       grams: {
         value: converter.ounces(value).inGrams(),
         symbol: symbols.grams,
@@ -108,6 +113,6 @@ export default class Mass {
         value,
         symbol: symbols.ounces,
       },
-    });
+    }));
   }
 }

@@ -1,10 +1,15 @@
-import builder from '../utils/builder';
+import merger from '../utils/merger';
 import regex from '../utils/regex';
 import { temperature as symbols } from '../utils/symbols';
 import converter from '../converters/temperatureConverter';
 
 export default class Temperature {
-  constructor(value = 0) {
+  constructor(properties = 0) {
+    if (typeof properties === 'object') {
+      Object.assign(this, properties);
+      return;
+    }
+
     const rules = [
       {
         expression: /(c|ºc)$/,
@@ -16,11 +21,11 @@ export default class Temperature {
       },
     ];
 
-    Object.assign(this, regex(value, rules));
+    Object.assign(this, regex(properties, rules));
   }
 
   static celcius(value) {
-    return builder(Temperature.prototype, {
+    return new Temperature(merger({
       celcius: {
         value,
         symbol: symbols.celcius,
@@ -29,11 +34,11 @@ export default class Temperature {
         value: converter.celcius(value).inFahrenheit(),
         symbol: symbols.fahrenheit,
       },
-    });
+    }));
   }
 
   static fahrenheit(value) {
-    return builder(Temperature.prototype, {
+    return new Temperature(merger({
       celcius: {
         value: converter.fahrenheit(value).inCelcius(),
         symbol: symbols.celcius,
@@ -42,6 +47,6 @@ export default class Temperature {
         value,
         symbol: symbols.fahrenheit,
       },
-    });
+    }));
   }
 }
