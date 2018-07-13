@@ -9,8 +9,8 @@ describe('ABV Calculator', () => {
     };
     const result = abv(params);
 
-    expect(result.abv).toBeCloseTo(0.0448, 1);
-    expect(result.abw).toBeCloseTo(0.0358, 1);
-    expect(result.attenuation).toBeCloseTo(0.8095, 1);
+    expect(result.abv).toBeCloseTo(0.0448, 3);
+    expect(result.abw).toBeCloseTo(0.0358, 3);
+    expect(result.attenuation).toBeCloseTo(0.8095, 3);
   });
 });

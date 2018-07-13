@@ -8,6 +8,6 @@ describe('Volume CO2 Calculator', () => {
       temperature: new Temperature(20),
     };
 
-    expect(volumeCo2(params)).toBeCloseTo(2.47, 1);
+    expect(volumeCo2(params)).toBeCloseTo(2.47, 2);
   });
 });

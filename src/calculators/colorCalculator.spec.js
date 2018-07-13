@@ -39,11 +39,11 @@ describe('Color Calculator', () => {
     };
 
     const result = color(mock);
-    expect(result.srm.value).toBeCloseTo(expected.srm.value, 1);
+    expect(result.srm.value).toBeCloseTo(expected.srm.value, 2);
     expect(result.srm.symbol).toBe(expected.srm.symbol);
-    expect(result.ebc.value).toBeCloseTo(expected.ebc.value, 1);
+    expect(result.ebc.value).toBeCloseTo(expected.ebc.value, 2);
     expect(result.ebc.symbol).toBe(expected.ebc.symbol);
-    expect(result.lovibond.value).toBeCloseTo(expected.lovibond.value, 1);
+    expect(result.lovibond.value).toBeCloseTo(expected.lovibond.value, 2);
     expect(result.lovibond.symbol).toBe(expected.lovibond.symbol);
     expect(result.hex).toBe(expected.hex);
     expect(result.rgb).toEqual(expected.rgb);

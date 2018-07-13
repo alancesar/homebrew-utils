@@ -37,6 +37,6 @@ describe('IBU Calculator', () => {
 
   it('total IBU', () => {
     const result = ibu(mock);
-    expect(result).toBeCloseTo(73.61, 1);
+    expect(result).toBeCloseTo(73.61, 2);
   });
 });

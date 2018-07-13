@@ -12,11 +12,11 @@ describe('Mass Converver', () => {
     });
 
     it('to lbs', () => {
-      expect(converter.kilograms(kg).inPounds()).toBeCloseTo(lbs, 1);
+      expect(converter.kilograms(kg).inPounds()).toBeCloseTo(lbs, 3);
     });
 
     it('to oz', () => {
-      expect(converter.kilograms(kg).inOunces()).toBeCloseTo(oz, 1);
+      expect(converter.kilograms(kg).inOunces()).toBeCloseTo(oz, 3);
     });
   });
 
@@ -25,16 +25,16 @@ describe('Mass Converver', () => {
       expect(converter.grams(g).inKilograms()).toEqual(kg);
     });
     it('to lbs', () => {
-      expect(converter.grams(g).inPounds()).toBeCloseTo(lbs, 1);
+      expect(converter.grams(g).inPounds()).toBeCloseTo(lbs, 3);
     });
     it('to oz', () => {
-      expect(converter.grams(g).inOunces()).toBeCloseTo(oz, 1);
+      expect(converter.grams(g).inOunces()).toBeCloseTo(oz, 3);
     });
   });
 
   describe('in lbs', () => {
     it('to kg', () => {
-      expect(converter.pounds(lbs).inKilograms()).toBeCloseTo(kg, 1);
+      expect(converter.pounds(lbs).inKilograms()).toBeCloseTo(kg, 3);
     });
 
     it('to g', () => {
@@ -45,17 +45,17 @@ describe('Mass Converver', () => {
       const output = converter.pounds(input).inGrams();
 
       // Then
-      expect(output / 1000).toBeCloseTo(g / 1000, 1);
+      expect(output / 1000).toBeCloseTo(g / 1000, 3);
     });
 
     it('to oz', () => {
-      expect(converter.pounds(lbs).inOunces()).toBeCloseTo(oz, 1);
+      expect(converter.pounds(lbs).inOunces()).toBeCloseTo(oz, 3);
     });
   });
 
   describe('in oz', () => {
     it('to kg', () => {
-      expect(converter.ounces(oz).inKilograms()).toBeCloseTo(kg, 1);
+      expect(converter.ounces(oz).inKilograms()).toBeCloseTo(kg, 3);
     });
 
     it('to g', () => {

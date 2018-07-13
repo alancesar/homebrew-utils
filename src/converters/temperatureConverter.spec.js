@@ -5,9 +5,9 @@ describe('Temperature Converver', () => {
   const f = 147.2;
 
   it('ºC to ºF', () => {
-    expect(converter.celcius(c).inFahrenheit()).toBeCloseTo(f, 1);
+    expect(converter.celcius(c).inFahrenheit()).toBeCloseTo(f, 3);
   });
   it('ºF to ºC', () => {
-    expect(converter.fahrenheit(f).inCelcius()).toBeCloseTo(c, 1);
+    expect(converter.fahrenheit(f).inCelcius()).toBeCloseTo(c, 3);
   });
 });

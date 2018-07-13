@@ -9,6 +9,6 @@ describe('Refractometer Calculator', () => {
     };
 
     const result = refractometer(params);
-    expect(result.sg.value).toBeCloseTo(1.010, 1);
+    expect(result.sg.value).toBeCloseTo(1.010, 3);
   });
 });
