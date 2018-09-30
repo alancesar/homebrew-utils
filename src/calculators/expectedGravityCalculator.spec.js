@@ -1,7 +1,7 @@
 import { expectedGravity } from './calculators';
 import { Mass, Volume } from '../units/units';
 
-describe('Expected Density Calculator', () => {
+describe('Expected Gravity Calculator', () => {
   const mock = {
     inputs: [
       {
